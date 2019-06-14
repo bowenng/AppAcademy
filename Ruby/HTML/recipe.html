@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Delicious, easy-to-make Alfredo Pasta recipe by Food Network">
     <title>Recipe</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script type="text/javascript" src="review.js"></script>
 </head>
 <body>
     <header>
@@ -62,9 +65,37 @@
 
     </aside>
     
+    <section id=“reviews”>
+        <form id="review-form" action="/reviews.js" method="POST">
+            <label for="username"> Username</label>
+            <input id="username" type="text">
+
+            <label for="rating"> Rating</label>
+            1<input type="radio" name="rating" value=1 checked>
+            2<input type="radio" name="rating" value=2>
+            3<input type="radio" name="rating" value=3>
+            4<input type="radio" name="rating" value=4>
+            5<input type="radio" name="rating" value=5>
+            
+            <label for="expertise">Cooking Expertise</label>
+            <select name="expertise" id="expertise"> 
+                <option value="placeholder" selected="true" disabled="true">Select Cooking Expertise</option>
+                <option value="sometimes">Sometimes Cook</option>
+                <option value="everday">Cook Everyday</option>
+                <option value="professional">Professional Cook</option>
+                <option value="chef">Chef</option>
+            </select>
+
+            <label>Review
+                <textarea name="review" id="review" cols="30" rows="10"></textarea>
+            </label>
+
+            <input type="submit" value="Submit Form">
+        </form>
+    </section>
     <footer>
         <p>
-            From <a href="https://www.foodnetwork.com/recipes/food-network-kitchen/low-cal-fettuccine-alfredo-recipe-2118317">Food Network Magazine</a>
+            Original Recipe By <a href="https://www.foodnetwork.com/recipes/food-network-kitchen/low-cal-fettuccine-alfredo-recipe-2118317">Food Network Magazine</a>
         </p>
     </footer>
 </body>
