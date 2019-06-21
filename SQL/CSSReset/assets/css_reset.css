@@ -1,0 +1,21 @@
+html, body, section, article, h1, h2, p{
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    font: inherit;
+
+    vertical-align: baseline;
+}
+
+.ingredients-list {
+    list-style: none;
+}
+
+p {
+    line-height: 1.5px;
+}
+
+img{
+    width: 100%;
+}

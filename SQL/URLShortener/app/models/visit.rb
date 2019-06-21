@@ -16,9 +16,13 @@ class Visit < ApplicationRecord
         primary_key: :id
     )
 
-    def self.record_visit!(user, shortened_url)
+    def self.record_visit!(user, short_url)
         visitor_id = user.id
-        shortened_url_id = shortened_url.id
+        shortened_url_id = ShortenedUrl.where(:short_url => short_url).first.id
         self.create(visitor_id: visitor_id, url_id: shortened_url_id)
+    end
+
+    def self.last_visit
+        Visit.all.last.url.short_url
     end
 end
