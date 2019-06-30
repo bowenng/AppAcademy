@@ -16,8 +16,11 @@ class ArtworksController < ApplicationController
     end
 
     def index
-        all_artworks = Artwork.all
-        render json: all_artworks
+        user_id = params[:user_id]
+        user = User.find(user_id)
+        artworks_created = user.artworks
+        artworks_shared = user.shared_artworks
+        render json: {'artworks created' => artworks_created, 'artworks shared' => artworks_shared}
     end
 
     def show
@@ -34,6 +37,7 @@ class ArtworksController < ApplicationController
             render json: artwork.errors.full_messages, status: :unprocessable_entity
         end
     end
+    
     private
     def artwork_params
         params.require(:artwork).permit(:title, :image_url, :artist_id)
