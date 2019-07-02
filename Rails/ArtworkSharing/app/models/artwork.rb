@@ -17,6 +17,7 @@ class Artwork < ApplicationRecord
 
     has_many(
         :artwork_shares,
+        dependent: :destroy,
         class_name: 'ArtworkShare',
         foreign_key: :artwork_id,
         primary_key: :id 
@@ -26,5 +27,13 @@ class Artwork < ApplicationRecord
         :shared_viewers,
         through: :artwork_shares,
         source: :viewer
+    )
+
+    has_many(
+        :comments,
+        dependent: :destroy,
+        class_name: 'Comment',
+        foreign_key: :artwork_id,
+        primary_key: :id
     )
 end

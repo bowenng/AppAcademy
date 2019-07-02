@@ -23,4 +23,11 @@ class User < ApplicationRecord
         primary_key: :id
     )
 
+    has_many(
+        :comments,
+        dependent: :destroy,
+        class_name: 'Comment',
+        foreign_key: :commenter_id,
+        primary_key: :id
+    )
 end

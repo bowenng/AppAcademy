@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_115000) do
+ActiveRecord::Schema.define(version: 2019_07_01_075447) do
 
   create_table "artwork_shares", force: :cascade do |t|
     t.integer "artwork_id", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2019_06_30_115000) do
     t.datetime "updated_at", null: false
     t.index ["artist_id", "title"], name: "index_artworks_on_artist_id_and_title", unique: true
     t.index ["artist_id"], name: "index_artworks_on_artist_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "commenter_id", null: false
+    t.integer "artwork_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_comments_on_artwork_id"
+    t.index ["commenter_id"], name: "index_comments_on_commenter_id"
   end
 
   create_table "users", force: :cascade do |t|
