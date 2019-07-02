@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_064328) do
     t.date "start_date", null: false
     t.date "end_date", null: false
     t.string "status", default: "PENDING"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["cat_id"], name: "index_cat_rental_requests_on_cat_id"
   end
 
