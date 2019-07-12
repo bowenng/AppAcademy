@@ -19,6 +19,9 @@ class Cat < ApplicationRecord
         primary_key: :id
     )
 
+    def self.most_recent_request
+        Cat.
+    end
 
     
 end

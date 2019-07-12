@@ -11,4 +11,12 @@
         Description:
         <%= cat.description %>
     </p>
+
+    <p>
+        <% if rent %>
+            <%= rent.start_date %> -> <%= rent.end_date %>
+        <% else %>
+            Rent me!
+        <% end %>
+    </p>
 </article>

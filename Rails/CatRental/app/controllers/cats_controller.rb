@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
     def index
-        @cats = Cat.all
+        @cats = Cat.joins(:most_recent_requests)
         render :index
     end
 
